@@ -11,7 +11,7 @@ body {
 
 header {
     background-color: #A6A78D;
-
+    /* display:inline-flex; */
 }
 
 main {
@@ -19,6 +19,8 @@ main {
     /* display: grid;
     place-items: center; */
     text-align: center;
+    place-content: center;
+    vertical-align: middle;
 }
 
 footer{
@@ -27,11 +29,10 @@ footer{
 
 nav {
     float: right;
-    display: flex;
+    display: inline-flex;
     height: auto;
-    vertical-align: middle;
-    position: relative;
-    top: 30px;
+    /* position: relative;
+    top: 30px; */
 }
 
 nav p {
@@ -41,8 +42,11 @@ nav p {
     vertical-align: middle;
     border-radius: 25px;
     background-color: whitesmoke;
+    /* max-width: 15ch;
+    min-width: auto; */
     width: 15ch;
     text-align: center;
+    display: inline;
 
     /* color: white; */
 }
@@ -55,6 +59,7 @@ a {
 
 header img {
     width: 300px;
+    float: left;
 }
 section {
     display: grid;
@@ -68,7 +73,8 @@ section h1 {
 section p {
     color: #3500FE;
     font-size: medium;
-    width: 45ch;
+    max-width: 45ch;
+    min-width: auto;
     text-align: center;
     border: black dotted 5px;
 }
