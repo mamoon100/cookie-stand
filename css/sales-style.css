@@ -1,3 +1,19 @@
 ul {
     list-style: circle;
 }
+
+ul li {
+    margin: 5px;
+    padding: 3px;
+    text-align: left;
+}
+
+h1 {
+    border: rgb(0, 0, 0) solid 2px;
+    border-radius: 20px;
+}
+
+h1 + ul {
+    margin: 10px;
+}
+
