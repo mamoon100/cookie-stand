@@ -1,19 +1,29 @@
-ul {
-    list-style: circle;
+th {
+    margin: 3px;
+    padding: 5px;
+    border: 2px solid black;
 }
 
-ul li {
-    margin: 5px;
-    padding: 3px;
-    text-align: left;
+table {
+    padding: 5px;
+    margin-top: 10%;
+    border: 2px solid black;
+    width: auto;
+    height: 30vh;
 }
 
-h1 {
-    border: rgb(0, 0, 0) solid 2px;
-    border-radius: 20px;
+td {
+    margin: 3px;
+    padding: 5px;
+    border: 2px solid black;
 }
 
-h1 + ul {
-    margin: 10px;
+td:hover {
+    background-color: yellow;
+}
+
+
+th:hover {
+    background-color: red;
 }
 
