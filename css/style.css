@@ -35,7 +35,7 @@ nav {
     top: 30px; */
 }
 
-nav p {
+nav a {
     border: #5B4635 solid 3px;
     padding: 3px;
     margin: 5px;
@@ -47,6 +47,7 @@ nav p {
     width: 15ch;
     text-align: center;
     display: inline;
+    margin-top: 35px;
 
     /* color: white; */
 }

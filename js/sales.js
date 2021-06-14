@@ -1,108 +1,100 @@
 'use strict'
+let table = document.createElement('table');
+let tableBody = document.createElement('tbody');
+let section = document.getElementById('data');
 
-let data = document.getElementById('data')
-let seattle = {
-    cookieList : [],
-    min: 23,
-    cityName: 'Seattle',
-    max: 65,
-    avg: 6.3,
-    // sum: 0,
-    getCookieNumber: function () {
-        return Math.floor((Math.random() * (this.max - this.min) + this.min)*this.avg);
-      }
-}
-
-let tokyo = {
-    cookieList : [],
-    min: 3,
-    cityName: 'Tokyo',
-    max: 24,
-    avg: 1.2,
-    // sum: 0,
-    getCookieNumber: function () {
-        return Math.floor((Math.random() * (this.max - this.min) + this.min)*this.avg);
-      }
-}
-
-let dubai = {
-    cookieList : [],
-    min: 11,
-    cityName: 'Dubai',
-    max: 38,
-    avg: 3.7,
-    // sum: 0,
-    getCookieNumber: function () {
-        return Math.floor((Math.random() * (this.max - this.min) + this.min)*this.avg);
-      }
-}
-
-let paris = {
-    min: 20,
-    cityName: 'Paris',
-    max: 38,
-    avg: 2.3,
-    // sum: 0,
-    getCookieNumber: function () {
-        return Math.floor((Math.random() * (this.max - this.min) + this.min)*this.avg);
-      },
-    cookieList : []
-}
-
-let lima = {
-    min: 2,
-    cityName: 'Lima',
-    max: 16,
-    avg: 4.6,
-    // sum: 0,
-    getCookieNumber: function () {
-        return Math.floor((Math.random() * (this.max - this.min) + this.min)*this.avg);
-      },
-    cookieList : [],
-}
-
-function addTheCookieCity (city) {
-    let cookie;
-    let randomCookie;
-    let cookieSum;
-    let naming;
-    let unOrderCookie;
-    let hourlyCookie;
-    let totalCookie;
-    // let newLine = document.createElement("br");
-    // let cityName;
-
-    for (let i = 0; i<city.length; i++){
-        unOrderCookie = document.createElement("ul");
-        naming = document.createElement("h1");
-        cookieSum = 0;
-        // cityName = city[i].cityName;
-        for (let j = 6; j < 21 ; j++) {
-            // cookieSum = 0;
-            hourlyCookie = document.createElement('li')
-            totalCookie = document.createElement('li')
-            randomCookie = city[i].getCookieNumber();
-            cookieSum+=randomCookie
-            // console.log(randomCookie,cookieSum)
-            if (j<12) {
-                cookie = [`${j}am: ${randomCookie} cookies`];
-            }
-            else if (j === 12 ){
-                cookie = [`${j}pm: ${randomCookie} cookies`];
-            }
-            else {
-                cookie = [`${j-12}pm: ${randomCookie} cookies`];
-            }
-            hourlyCookie.innerHTML = cookie;
-            unOrderCookie.appendChild(hourlyCookie);
+function City ( cityName, cookieList, min, max, avg) {
+    this.cityName = cityName;
+    this.cookieList = cookieList;
+    this.min = min;
+    this.max = max;
+    this.avg = avg;
+    this.getCookieNumber = function () {
+        let tempoCookie = Math.floor((Math.random() * (this.max - this.min) + this.min)*this.avg);
+        // console.log(tempoCookie)
+        this.cookieList.push(tempoCookie);
+        return tempoCookie;
+    }
+    this.render = function () {
+        let tableRow = document.createElement('tr');
+        let tableData = document.createElement('td');
+        tableData.innerText = this.cityName;
+        tableRow.appendChild(tableData);
+        tableBody.appendChild(tableRow);
+        let totalSum = 0;
+        let randomlyCookie;
+        for (let i = 0; i< 14; i++) {
+            randomlyCookie = this.getCookieNumber();
+            tableData = document.createElement('td');
+            tableData.innerText = randomlyCookie
+            tableRow.appendChild(tableData);
+            totalSum += randomlyCookie;
         }
-        totalCookie.innerHTML=`Total: ${cookieSum} cookies`;
-        unOrderCookie.appendChild(totalCookie);
-        naming.innerHTML=city[i].cityName;
-        data.appendChild(naming);
-        data.appendChild(unOrderCookie);
+        tableData = document.createElement('td');
+        tableData.innerText = totalSum;
+        tableRow.appendChild(tableData);
+        cookieList.push(totalSum);
     }
 }
 
-let city = [seattle, tokyo, dubai, paris, lima];
-addTheCookieCity(city);
+function createCookieTableHeader () {
+    let tableHeader = document.createElement('thead');
+    let tableHead = document.createElement('th');
+    let tableRow = document.createElement('tr');
+    table.appendChild(tableHeader);
+    tableHeader.appendChild(tableRow)
+    tableHead.innerText = ''
+    tableRow.appendChild(tableHead);
+    for (let i = 6; i < 20; i++) {
+        tableHead = document.createElement('th')
+        if (i<12) {
+            tableHead.innerText = `${i}:00 am`;
+        }
+        else if (i===12) {
+            tableHead.innerText = `${i}:00 pm`;
+        }
+        else {
+            tableHead.innerText = `${i-12}:00 pm`;
+        }
+        tableRow.appendChild(tableHead);
+    }
+    tableHead = document.createElement('th');
+    tableHead.innerText = 'Daily Location Total'
+    tableRow.appendChild(tableHead);
+}
+
+function createCookieTableFooter (city) {
+    let tableFooter = document.createElement('thead');
+    let tableFoot = document.createElement('th');
+    let tableRow = document.createElement('tr');
+    table.appendChild(tableFooter);
+    tableFooter.appendChild(tableRow);
+    tableFoot.innerText = 'Totals';
+    tableRow.appendChild(tableFoot);
+    let sumVal = 0;
+    for (let j = 1; j<= city[0].cookieList.length;j++){
+        sumVal = 0;
+    for (var i = 2; i < table.rows.length; i++) {
+        sumVal = sumVal + parseInt(table.rows[i].cells[j].innerHTML);
+    }
+    tableFoot = document.createElement('th');
+    tableFoot.innerText = sumVal;
+    tableRow.appendChild(tableFoot);
+}
+}
+
+let seattle = new City ('Seattle', [],23, 65, 6.3);
+let tokyo = new City ('Tokyo', [], 3, 24, 1.2);
+let dubai = new City('Dubai', [], 11, 38, 3.7);
+let paris = new City ('Paris', [], 20, 38, 2.3);
+let lima = new City ('Lima', [], 2, 16, 4.6);
+let cityArray = [seattle, tokyo, dubai, paris, lima];
+createCookieTableHeader();
+seattle.render();
+tokyo.render();
+dubai.render();
+paris.render();
+lima.render();
+table.appendChild(tableBody);
+section.appendChild(table);
+createCookieTableFooter(cityArray);
