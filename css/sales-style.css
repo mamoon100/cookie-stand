@@ -27,3 +27,7 @@ th:hover {
     background-color: red;
 }
 
+main {
+    display: block;
+}
+

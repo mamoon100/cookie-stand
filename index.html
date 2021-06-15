@@ -1,34 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pat’s Salmon Cookies</title>
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/style.css">
-  </head>
 
-  <body>
-    <header>
-        <img src="./img/salmon.png" alt="Salmon Logo">
-        <nav>
-          <a href="./sales.html"><p>Sales</p></a>
-          <a href="#about"><p>About</p></a>
-          <a href="https://github.com/mamoon100" target="_blank"><p>My Github Page</p></a>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h1 id="about">About Pat's Salmon Cookies</h1><br>
-            <p>
-                Pat needs some help with the branding of the business, as well as some help with internal data management for the company, and has enlisted your assistance because of your extensive and proven work in developing web applications.
-            </p>
-        </section>
-    </main>
-    <footer>
-        All Right Reserved Mamoun Hussein &copy; LTUC 2021.
-    </footer>
-    <script src="./js/app.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pat’s Salmon Cookies</title>
+  <link rel="stylesheet" href="./css/reset.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <header>
+    <img src="./img/salmon.png" alt="Salmon Logo" />
+    <nav>
+      <a href="./sales.html">
+        <p>Sales</p>
+      </a>
+      <a href="#about">
+        <p>About</p>
+      </a>
+      <a href="https://github.com/mamoon100" target="_blank">
+        <p>My Github Page</p>
+      </a>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h1 id="about">About Pat's Salmon Cookies</h1>
+      <br />
+      <p>
+        Pat needs some help with the branding of the business, as well as some
+        help with internal data management for the company, and has enlisted
+        your assistance because of your extensive and proven work in
+        developing web applications.
+      </p>
+      <h1>Opeaning Hour</h1>
+      <p>
+        We open From 6 Am to 7 Pm.
+      </p>
+    </section>
+    <section>
+      <img src="./img/chinook.jpg" alt="chinook" srcset="" />
+      <img src="./img/cutter.jpeg" alt="cutter" srcset="" />
+      <img src="./img/family.jpg" alt="family" srcset="" />
+      <img src="./img/fish.jpg" alt="fish" srcset="" />
+      <img src="./img/frosted-cookie.jpg" alt="frosted-cookie" srcset="" />
+      <img src="./img/salmon.png" alt="salmon" srcset="" />
+      <img src="./img/shirt.jpg" alt="shirt" srcset="" />
+    </section>
+    <section id='cont'>
+      <label for="menu">Choose your theme</label>
+      <select name="menu" id="menu" onchange="changeColor(value)">
+        <option value="green">Original</option>
+        <option value="black">Dark</option>
+        <option value="white">White</option>
+      </select>
+    </section>
+  </main>
+  <footer>All Right Reserved Mamoun Hussein &copy; LTUC 2021.</footer>
+  <script src="./js/app.js"></script>
+</body>
+
 </html>

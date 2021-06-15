@@ -21,6 +21,9 @@ main {
     text-align: center;
     place-content: center;
     vertical-align: middle;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 footer{
@@ -62,10 +65,10 @@ header img {
     width: 300px;
     float: left;
 }
-section {
+/* section {
     display: grid;
     place-content: center;
-}
+} */
 
 section h1 {
     font-size: 30px;
@@ -82,4 +85,42 @@ section p {
 
 footer {
     text-align: center;
+}
+
+main section {
+    /* background-color: black; */
+    flex: 1 1 300px;
+    padding: 0 5px;
+    margin: 10px;
+    height: auto;
+}
+
+section:nth-child(1){
+    gap: 5px;
+    /* background-color: #E62200; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+section:nth-child(2) {
+    /* background-color: bisque; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    overflow: auto;
+    width: auto;
+}
+
+section:nth-child(3) {
+    /* background-color: white; */
+}
+
+
+section:nth-child(2) img {
+    width: 200px;
+    /* height: 200px; */
+    border: 2px solid black;
 }
