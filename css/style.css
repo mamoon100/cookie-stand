@@ -73,6 +73,7 @@ header img {
 section h1 {
     font-size: 30px;
     color: #E62200;
+    margin: 5px;
 }
 section p {
     color: #3500FE;
@@ -103,6 +104,7 @@ section:nth-child(1){
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
+    /* margin: 100px; */
 }
 
 section:nth-child(2) {
@@ -114,13 +116,23 @@ section:nth-child(2) {
     width: auto;
 }
 
-section:nth-child(3) {
-    /* background-color: white; */
-}
+/* section:nth-child(3) {
+    /* background-color: white; 
+} */
 
 
 section:nth-child(2) img {
     width: 200px;
     /* height: 200px; */
     border: 2px solid black;
+}
+
+
+ul {
+    list-style: circle;
+    float: left;
+}
+
+p {
+    margin: 5px;
 }
