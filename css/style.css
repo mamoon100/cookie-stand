@@ -19,7 +19,7 @@ main {
     /* display: grid;
     place-items: center; */
     text-align: center;
-    place-content: center;
+    /* place-content: center; */
     vertical-align: middle;
     display: flex;
     flex-wrap: wrap;

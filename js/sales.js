@@ -3,7 +3,7 @@
 let table = document.createElement("table");
 let tableBody = document.createElement("tbody");
 let section = document.getElementById("data");
-
+let cityForm = document.getElementById("cityForm");
 function City(cityName, cookieList, min, max, avg) {
   this.cityName = cityName;
   this.cookieList = cookieList;
@@ -14,7 +14,6 @@ function City(cityName, cookieList, min, max, avg) {
     let tempoCookie = Math.floor(
       (Math.random() * (this.max - this.min) + this.min) * this.avg
     );
-    // console.log(tempoCookie)
     this.cookieList.push(tempoCookie);
     return tempoCookie;
   };
@@ -46,7 +45,7 @@ function createCookieTableHeader() {
   let tableRow = document.createElement("tr");
   table.appendChild(tableHeader);
   tableHeader.appendChild(tableRow);
-  tableHead.innerText = "";
+  tableHead.innerText = "Location";
   tableRow.appendChild(tableHead);
   for (let i = 6; i < 20; i++) {
     tableHead = document.createElement("th");
@@ -96,6 +95,39 @@ tokyo.render();
 dubai.render();
 paris.render();
 lima.render();
+
+function formSubmit (event) {
+  let isItThere = false
+  let name = event.target.cityName.value;
+  name = name[0].toUpperCase()+name.slice(1);
+  for (let c=0; c<cityArray.length; c++){
+    if (cityArray[c].cityName == name) {
+      isItThere = true;
+      break;
+    }
+  }
+  if (isItThere) {
+    alert('The City name is already in the table');
+    event.preventDefault();
+  }
+  else {
+  event.preventDefault();
+  let avg = event.target.avgCust.value;
+  let min = event.target.minCust.value;
+  let max = event.target.maxCust.value;
+  let newCity = new City (name, [], min, max, avg);
+  cityArray.push(newCity)
+  newCity.render()
+  for (let r = 1; r<16; r++ ){
+    let fixedTotal = parseInt(table.rows[1].cells[r].innerHTML);
+    table.rows[1].cells[r].innerHTML = fixedTotal + newCity.cookieList[r-1];
+  }
+  }
+}
+
+
+cityForm.addEventListener('submit',formSubmit);
 table.appendChild(tableBody);
 section.appendChild(table);
 createCookieTableFooter(cityArray);
+

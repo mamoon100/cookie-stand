@@ -2,14 +2,15 @@ th {
     margin: 3px;
     padding: 5px;
     border: 2px solid black;
+    vertical-align: middle;
 }
 
 table {
     padding: 5px;
-    margin-top: 10%;
+    /* margin-top: 10%; */
     border: 2px solid black;
     width: auto;
-    height: 30vh;
+    height: auto;
 }
 
 td {
@@ -29,5 +30,22 @@ th:hover {
 
 main {
     display: block;
+    place-items: center;
+    /* place-content: top; */
 }
 
+fieldset {
+    border: 3px solid black;
+    height: auto;
+    border-radius: 10px;
+    float: right;
+}
+
+form {
+    display: grid;
+}
+
+#data {
+    display: flex;
+    justify-content: space-between;
+}

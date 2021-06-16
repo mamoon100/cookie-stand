@@ -1,31 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pat’s Salmon Cookies Sales</title>
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/sales-style.css">
-  </head>
 
-  <body>
-    <header>
-        <img src="./img/salmon.png" alt="Salmon Logo">
-        <nav>
-          <a href="./index.html"><p>Home</p></a>
-          <a href="#data"><p>Data</p></a>
-          <a href="https://github.com/mamoon100" target="_blank"><p>My Github Page</p></a>
-        </nav>
-    </header>
-    <main>
-        <section id="data">
-        </section>
-    </main>
-    <footer>
-        All Right Reserved Mamoun Hussein &copy; LTUC 2021.
-    </footer>
-    <script src="./js/sales.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pat’s Salmon Cookies Sales</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/sales-style.css">
+</head>
+
+<body>
+  <header>
+    <img src="./img/salmon.png" alt="Salmon Logo">
+    <nav>
+      <a href="./index.html">
+        <p>Home</p>
+      </a>
+      <a href="#data">
+        <p>Data</p>
+      </a>
+      <a href="https://github.com/mamoon100" target="_blank">
+        <p>My Github Page</p>
+      </a>
+    </nav>
+  </header>
+  <main>
+    <section id="data">
+      <fieldset>
+        <legend>Add a City to The Table</legend>
+        <form id="cityForm">
+          <label for="cityName">City Name</label>
+          <input type="text" name="cityName" id="cityName" placeholder="Amman" required>
+          <label for="avgCust">Average Customer</label>
+          <input type="number" name="avgCust" id="avgCust" placeholder="7.2" min="0" step=".1" required >
+          <label for="minCust">Minimum Costumer</label>
+          <input type="number" name="minCust" id="minCust" placeholder="7" min="0" onchange="document.getElementById('maxCust').min=this.value;" required >
+          <label for="maxCust">Maximum Costumer</label>
+          <input type="number" name="maxCust" id="maxCust" placeholder="15"  required>
+          <button type="submit">Calculate</button>
+        </form>
+      </fieldset>
+    </section>
+  </main>
+  <footer>
+    All Right Reserved Mamoun Hussein &copy; LTUC 2021.
+  </footer>
+  <script src="./js/sales.js"></script>
+</body>
+
 </html>
